@@ -1,0 +1,342 @@
+/*============================
+Main/Utilities
+============================*/
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+	   -moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+			box-sizing: border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+	*zoom: 1;
+}
+
+.sr-only{
+    display: none;
+}
+	
+/*============================
+Main/Layout
+============================*/			
+body{
+	padding: 0;
+	margin: 0;
+}
+
+.content{
+	padding-top: 66px;
+}
+
+.one-third{
+	float: none;
+	width: 100%;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+	.container{
+		width: 750px;
+		margin: 0 auto
+	}
+
+	.one-third{
+		float: left;
+		width: 33%;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.container{
+		width: 970px;
+		margin: 0 auto
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	.container{
+		width: 1170px;
+		margin: 0 auto
+	}
+}
+
+/*============================
+Navigation
+============================*/
+.header{
+	position: fixed;
+	width:100%;
+	background-color: rgba(187, 68, 0, 0.8);
+}
+
+.site-brand a,
+.site-brand a:link,
+.site-brand a:visited{
+	font-family: 'Rock Salt', 'Open Sans', sans-serif;
+	color: #fff;
+	text-decoration: none;
+	padding: 0 12px;
+	line-height: 64px;
+}
+
+.site-brand a:hover{
+	color: #000;
+}
+
+.site-nav{
+	display: none;
+	margin:0;
+}
+
+.site-nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.site-nav ul li a,
+.site-nav ul li a:link,
+.site-nav ul li a:visited{
+	font-family: 'Rock Salt', 'Open Sans', sans-serif;
+	display: inline-block;
+	text-decoration: none;
+	color: #fff;
+	line-height: 64px;
+	padding: 0 12px;
+	text-align: center;
+	width: 100%;
+	border-top: 1px solid rgb(187, 68, 0);
+}
+
+.site-nav ul li form{
+	font-family: 'Rock Salt', 'Open Sans', sans-serif;
+	display: inline-block;
+	text-decoration: none;
+	line-height: 64px;
+	padding: 0;
+    margin: 0;
+	width: 100%;
+	border-top: 1px solid rgb(187, 68, 0);
+    text-align: center;
+}
+
+.site-nav ul li form input[type="search"]{
+    border-radius: 4px;
+    border: 1px solid #efefef;
+    padding: 6px;
+}
+
+.site-nav ul li a:hover{
+	color: #000;
+	background-color: rgb(187, 68, 0);
+}
+
+.toggle-header-navigation{
+	float: right;
+	display: inline-block;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+	.site-brand{
+		width: 200px;
+		float: left;
+	}
+
+	.toggle-header-navigation{
+		display: none;
+	}
+
+	.site-nav{
+		display: block;
+		padding: 0;
+		margin-left: 200px;
+		text-align: right;
+	}
+	
+	.site-nav ul li{
+		display:inline;
+	}
+	
+	.site-nav ul li a,
+	.site-nav ul li a:link,
+	.site-nav ul li a:visited{
+		display:inline-block;
+		width: auto;
+		border-top: none;
+	}
+    
+	.site-nav ul li form{
+		display:inline-block;
+		width: auto;
+		border-top: none;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.container{
+		width: 970px;
+		margin: 0 auto
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+	.container{
+		width: 1170px;
+		margin: 0 auto
+	}
+}
+
+/*============================
+Footer
+============================*/
+.footer{
+	width: 100%;
+	color: #7F7F7F;
+	font-size: 0.85em;
+	border-top: 1px solid #f5f5f5;
+	margin-top: 12px;
+}
+
+.footer a{
+	color: #7F7F7F;
+	font-weight: bold;
+	font-size: 0.85em;
+}
+
+.footer-left,
+.footer-center,
+.footer-right{
+	text-align: center;
+	padding: 12px;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+	.footer-left,
+	.footer-center,
+	.footer-right{
+		float: left;
+		width: 33%;
+	}
+
+	.footer-left{
+		text-align: left;
+	}
+
+	.footer-right{
+		text-align: right;
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {}
+
+/*============================
+Home Page Titles
+============================*/
+.tile{
+	padding:2px 4px;
+	margin:0;
+	border: none;
+
+	color: #fff; 
+	font-weight: normal;
+	display: inline-block;
+	width: 100%;
+	overflow:hidden;
+	float:left;
+}
+
+.tile span{
+	display: inline-block;
+	width: 100%;
+	background: #000;
+	height: 180px;
+	padding: 24px;
+	font-size: 120%;
+}
+
+.tile:hover span{
+	background: #428bca;
+	color: #fff;
+}
+
+
+@media (min-width: 480px) {
+	.tile{
+		width: 50%;
+	}
+
+	.tile-double{
+		width: 100%;
+		font-size: 100%;
+	}
+}
+
+@media (min-width: 768px) {
+	.tile{
+		width: 25%;
+	}
+
+	.tile-double{
+		width: 50%; 
+		font-size: 100%;
+	}
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<?php echo $this->Html->charset(); ?>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title><?php echo $this->request->title; ?></title>
+        
+        <?php
+            echo $this->Html->meta(
+                'keywords',
+                $this->request->keywords
+            );
+
+            echo $this->Html->meta(
+                'description',
+                $this->request->description
+            );
+        
+            echo $this->Html->meta('icon', '/theme/JasonSniderTbs/img/57dd069b73a149098c4865f8f5813303.jpeg');
+
+			echo $this->Html->css('//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css');
+            echo $this->Html->css('cake.generic.stripped');
+			echo $this->Html->css('theme');
+			echo $this->Html->css('//fonts.googleapis.com/css?family=Rock+Salt');
+			echo $this->Html->css('//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700');
+			
+            echo $this->fetch('meta');
+            echo $this->fetch('css');
+            echo $this->fetch('script');
+        ?>
+		
+        <?php if(!empty($content)): ?>
+        <!-- Begin Social Tags -->
+        
+        <!-- Update your html tag to include the itemscope and itemtype attributes. -->
+        <!--<html itemscope itemtype="http://schema.org/Article">-->
+
+        <!-- Google Authorship and Publisher Markup -->
+        <link rel="author" href="https://plus.google.com/+JasonSnider"/>
+        <link rel="publisher" href=”https://plus.google.com/+JasonSnider"/>
+
+        <!-- Schema.org markup for Google+ -->
+        <meta itemprop="name" content="<?php echo $this->request->title; ?>">
+        <meta itemprop="description" content="<?php echo $this->request->description; ?>">
+        <!--<meta itemprop="image" content="http://www.example.com/image.jpg">-->
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@jason_snider">
+        <meta name="twitter:title" content="<?php echo $this->request->title; ?>">
+        <meta name="twitter:description" content="<?php echo $this->request->description; ?>">
+        <meta name="twitter:creator" content="@jason_snider">
+        <!-- Twitter summary card with large image must be at least 280x150px -->
+        <!--<meta name="twitter:image:src" content="http://www.example.com/image.html">-->
+
+        <!-- Open Graph data -->
+        <meta property="og:title" content="<?php echo $this->request->title; ?>" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://jasonsnider.com" />
+        <!--<meta property="og:image" content="http://example.com/image.jpg" />-->
+        <meta property="og:description" content="<?php echo $this->request->description; ?>" />
+        <meta property="og:site_name" content="Jason Snider" />
+        <!--<meta property="article:published_time" 
+              content="<?php //echo date('c', strtotime($content['Content']['created'])); ?>" />
+        <meta property="article:modified_time" 
+              content="<?php //echo date('c', strtotime($content['Content']['modified'])); ?>" />-->
+        <!--<meta property="article:section" content="Article Section" />
+        <meta property="article:tag" content="Article Tag" />
+        <meta property="fb:admins" content="Facebook numberic ID" />-->
+        
+        <!-- END SOCIAL TAGS-->
+        <?php endif; ?>
+		
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		
+		<div class="header clearfix">
+			<div class="container">
+
+				<div class="site-brand clearfix">
+					<a href="/" >Jason Snider</a>
+					<a href="" class="toggle-header-navigation">[---]</a>  
+				</div>
+				<div class="site-nav">
+					<ul>
+						<li><a href="/blog">Blog</a></li>
+						<li><a href="/jsc">Utilities</a></li>
+						<li>
+						  <?php
+						  echo $this->Form->create(
+							  'Content', 
+							  array(
+								  'url' => "/contents/contents/search/",
+								  'role'=>'form',
+								  'class'=>'navbar-form navbar-right',
+								  'inputDefaults'=>array(
+									  'required'=>false
+								  )
+							  )
+						  );
+						  echo $this->Form->input(
+							  'q', 
+							  array(
+								  'type'=>'search', 
+								  'placeholder'=>'search...',
+								  'label'=>array(
+									  'class'=>'sr-only',
+								  )
+							  )
+						  );
+						  ?>
+						  <?php echo $this->Form->end(); ?>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="content clearfix">
+			<div class="container">
+				<?php echo $this->Session->flash(); ?>
+
+				<?php echo $this->fetch('content'); ?>
+			</div>
+		</div>
+		
+		<div class="footer" role="footer">
+			<div class="container clearfix">
+				<?php echo $this->element('footer'); ?>
+			</div>
+		</div>
+		
+		<?php echo $this->element('sql_dump'); ?>
+		
+		<script>
+			var ToggleNavigation = (function() {
+				"use strict"; /*global document: false*/
+				var button = document.querySelector('.toggle-header-navigation');
+				button.addEventListener('click', function(event) {
+					event.preventDefault();
+					var target = document.querySelector('.site-nav');
+					if (target.style.display !== "block") {
+						target.style.display = "block";
+					} else {
+						target.style.display = "none";
+					}
+				});
+			}());
+		</script>
+        <?php echo $this->element('analytics'); ?>
+    </body>
+</html>
