@@ -30,49 +30,14 @@
             echo $this->fetch('css');
             echo $this->fetch('script');
         ?>
-		
-        <?php if(!empty($content)): ?>
-        <!-- Begin Social Tags -->
-        
-        <!-- Update your html tag to include the itemscope and itemtype attributes. -->
-        <!--<html itemscope itemtype="http://schema.org/Article">-->
 
         <!-- Google Authorship and Publisher Markup -->
-        <link rel="author" href="https://plus.google.com/+JasonSnider"/>
         <link rel="publisher" href=”https://plus.google.com/+JasonSnider"/>
 
         <!-- Schema.org markup for Google+ -->
         <meta itemprop="name" content="<?php echo $this->request->title; ?>">
         <meta itemprop="description" content="<?php echo $this->request->description; ?>">
-        <!--<meta itemprop="image" content="http://www.example.com/image.jpg">-->
 
-        <!-- Twitter Card data -->
-        <meta name="twitter:card" content="summary">
-        <meta name="twitter:site" content="@jason_snider">
-        <meta name="twitter:title" content="<?php echo $this->request->title; ?>">
-        <meta name="twitter:description" content="<?php echo $this->request->description; ?>">
-        <meta name="twitter:creator" content="@jason_snider">
-        <!-- Twitter summary card with large image must be at least 280x150px -->
-        <!--<meta name="twitter:image:src" content="http://www.example.com/image.html">-->
-
-        <!-- Open Graph data -->
-        <meta property="og:title" content="<?php echo $this->request->title; ?>" />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://jasonsnider.com" />
-        <!--<meta property="og:image" content="http://example.com/image.jpg" />-->
-        <meta property="og:description" content="<?php echo $this->request->description; ?>" />
-        <meta property="og:site_name" content="Jason Snider" />
-        <!--<meta property="article:published_time" 
-              content="<?php //echo date('c', strtotime($content['Content']['created'])); ?>" />
-        <meta property="article:modified_time" 
-              content="<?php //echo date('c', strtotime($content['Content']['modified'])); ?>" />-->
-        <!--<meta property="article:section" content="Article Section" />
-        <meta property="article:tag" content="Article Tag" />
-        <meta property="fb:admins" content="Facebook numberic ID" />-->
-        
-        <!-- END SOCIAL TAGS-->
-        <?php endif; ?>
-		
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -81,50 +46,7 @@
 		<![endif]-->
 	</head>
 	<body>
-		
-		<div class="header clearfix">
-			<div class="container">
-
-				<div class="site-brand clearfix">
-					<a href="/" >Jason Snider</a>
-					<a href="" class="toggle-header-navigation">[---]</a>  
-				</div>
-				<div class="site-nav">
-					<ul>
-						<li><a href="/blog">Blog</a></li>
-						<li><a href="/jsc">Utilities</a></li>
-						<li>
-						  <?php
-						  echo $this->Form->create(
-							  'Content', 
-							  array(
-								  'url' => "/contents/contents/search/",
-								  'role'=>'form',
-								  'class'=>'navbar-form navbar-right',
-								  'inputDefaults'=>array(
-									  'required'=>false
-								  )
-							  )
-						  );
-						  echo $this->Form->input(
-							  'q', 
-							  array(
-								  'type'=>'search', 
-								  'placeholder'=>'search...',
-								  'label'=>array(
-									  'class'=>'sr-only',
-								  )
-							  )
-						  );
-						  ?>
-						  <?php echo $this->Form->end(); ?>
-						</li>
-					</ul>
-
-				</div>
-			</div>
-		</div>
-
+		<?php echo $this->element('navbar'); ?>
 		<div class="content clearfix">
 			<div class="container">
 				<?php echo $this->Session->flash(); ?>
@@ -132,15 +54,8 @@
 				<?php echo $this->fetch('content'); ?>
 			</div>
 		</div>
-		
-		<div class="footer" role="footer">
-			<div class="container clearfix">
-				<?php echo $this->element('footer'); ?>
-			</div>
-		</div>
-		
+		<?php echo $this->element('footer'); ?>
 		<?php echo $this->element('sql_dump'); ?>
-		
 		<script>
 			var ToggleNavigation = (function() {
 				"use strict"; /*global document: false*/
