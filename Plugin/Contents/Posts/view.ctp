@@ -111,12 +111,24 @@
 </aside>
 
 <aside class="ad">
+	
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<!-- Leaderboard -->
+	<!--
 	<ins class="adsbygoogle"
 		 style="display:inline-block;width:728px;height:90px"
 		 data-ad-client="ca-pub-2297949586762275"
 		 data-ad-slot="3778634944"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script> -->
+	
+	<!-- Responsive -->
+	<ins class="adsbygoogle"
+		 style="display:block"
+		 data-ad-client="ca-pub-2297949586762275"
+		 data-ad-slot="2167680542"
+		 data-ad-format="auto"></ins>
 	<script>
 	(adsbygoogle = window.adsbygoogle || []).push({});
 	</script>
