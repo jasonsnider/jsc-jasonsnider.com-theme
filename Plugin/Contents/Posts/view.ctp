@@ -1,90 +1,35 @@
 <article>
 	<header>
 		<h1><?php echo $content['Post']['title']; ?></h1>
-		<div class="text-muted">
+		<div class="meta-data">
 			Posted On <time 
-				class="text-muted" 
 				datetime="<?php echo date('m/d/y', strtotime($content['Post']['created'])); ?>">
-				<?php echo date('l, F jS, Y \a\t h:m a', strtotime($content['Post']['created'])); ?></time>
-				By Jason
+				<?php echo date('l, F jS, Y \a\t H:i', strtotime($content['Post']['created'])); ?></time>
+				By Jason D Snider
 		</div>
 	</header>
 	<?php echo $content['Post']['body']; ?>
-	<div>
-		<?php 
-		foreach($content['Tag'] as $tag):
-			echo $this->Html->link(
-				$tag['name'], 
-				array(
-					'plugin'=>'contents',
-					'controller'=>'contents',
-					'action'=>'search',
-					'tags'=>$tag['name']
-				), 
-				array(
-					'class'=>'label label-default'
-				)
-			);
-			echo '&nbsp;';
-		endforeach; 
-		?>
-	</div>
-
+	
 </article>
 
-<aside class="shares clearfix">
-	<a href="<?php echo "http://www.linkedin.com/shareArticle?mini=true&url="
-			. "https://jasonsnider.com{$this->here}"; ?>"
-		title="Share this page on LinkedIn" 
-		target="_blank"
-		class="share"
-		onclick="window.open(
-			'<?php echo "http://www.linkedin.com/shareArticle?mini=true&url="
-				. "https://jasonsnider.com{$this->here}"; ?>',
-			'Share news on LinkedIn | LinkedIn',
-			'height=600,width=600'); return false;"
-		>
-		<span class="fa fa-linkedin"></span></a>
-
-	<a href="<?php echo "https://twitter.com/intent/tweet?url="
-		. "https://jasonsnider.com{$this->here}"; ?>"
-		title="Plus one this page on Twitter" 
-		target="_blank"
-		class="share"
-		onclick="window.open(
-			'<?php echo "https://twitter.com/intent/tweet?url="
-		. "https://jasonsnider.com{$this->here}"; ?>',
-			'Share a link with your followers',
-			'height=260,width=600'); return false;"
-		>
-		<span class="fa fa-twitter"></span></a>
-
-	<a href="<?php echo "http://www.facebook.com/sharer.php?u="
-		. "https://jasonsnider.com{$this->here}"; ?>" 
-		title="Share this page on Facebook" 
-		target="_blank"
-		class="share"                        
-		onclick="window.open(
-			'<?php echo "http://www.facebook.com/sharer.php?u="
-		. "https://jasonsnider.com{$this->here}"; ?>',
-			'Share on Facebook',
-			'height=400,width=600'); return false;"
-		>
-		<span class="fa fa-facebook"></span></a>
-
-	<a href="<?php echo "https://plusone.google.com/_/+1/confirm?hl=en&url="
-		.  "https://jasonsnider.com{$this->here}"; ?>" 
-		author=''
-		title="Plus one this page on Google" 
-		target="_blank"
-		class="share"
-		onclick="window.open(
-			'<?php echo "https://plusone.google.com/_/+1/confirm?hl=en&url="
-		.  "https://jasonsnider.com{$this->here}"; ?>',
-			'Share a link with your followers',
-			'height=500,width=500'); return false;"
-		>
-		<span class="fa fa-google-plus"></span></a>
+<aside>
+	<?php 
+	foreach($content['Tag'] as $tag):
+		echo $this->Html->link(
+			$tag['name'], 
+			array(
+				'plugin'=>'contents',
+				'controller'=>'contents',
+				'action'=>'search',
+				'tags'=>$tag['name']
+			), 
+			array(
+				'class'=>'label label-default'
+			)
+		);
+		echo '&nbsp;';
+	endforeach; 
+	?>
 </aside>
 
 <aside class="clearfix author" itemscope itemtype="http://data-vocabulary.org/Person">

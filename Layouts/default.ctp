@@ -2,12 +2,17 @@
 <html lang="en" itemscope itemtype="http://schema.org/Article">
 	<head>
 		<?php echo $this->Html->charset(); ?>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <title><?php echo $this->request->title; ?></title>
-        
         <?php
+			echo $this->Html->meta(array('http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'));
+			echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'));
+			echo $this->Html->tag('title', $this->request->title);
+		
+			//!!!DANGER ZONE - We shouldn't index result sets, but we do want the link juice.
+			if(in_array($this->request->action, array('index', 'search'))):
+				echo $this->Html->meta(array('name' => 'robots', 'content' => 'noindex, follow'));
+			endif;
+			//END DNAGER ZONE!!!
+		
             echo $this->Html->meta(
                 'keywords',
                 $this->request->keywords
@@ -21,7 +26,6 @@
             echo $this->Html->meta('icon', '/theme/JasonSniderTbs/img/57dd069b73a149098c4865f8f5813303.jpeg');
 
 			echo $this->Html->css('//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css');
-			echo $this->Html->css('//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
             echo $this->Html->css('cake.generic.stripped');
 			echo $this->Html->css('theme');
 			echo $this->Html->css('//fonts.googleapis.com/css?family=Rock+Salt');
@@ -30,9 +34,10 @@
             echo $this->fetch('meta');
             echo $this->fetch('css');
             echo $this->fetch('script');
+			
+			if(!empty($content)):
         ?>
         
-        <?php if(!empty($content)): ?>
         <!-- Begin Social Tags -->
 		
         <!-- Google Authorship and Publisher Markup -->

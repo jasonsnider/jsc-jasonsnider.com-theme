@@ -1,10 +1,10 @@
 <aside> 
 	<?php if(!empty($relatedContent)): ?>
-		<h4>
+		<header>
 			<?php echo $this->Html->link(
 				'Related Posts', 
-				"/contents/contents/index/{$relatedContent[0]['Category']['id']}"); ?>
-		</h4>
+				"/contents/posts/index/{$relatedContent[0]['Category']['id']}"); ?>
+		</header>
 		<ul>
 			<?php foreach($relatedContent as $related): ?>
 			<li>
