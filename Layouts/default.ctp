@@ -7,11 +7,11 @@
 			echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'));
 			echo $this->Html->tag('title', $this->request->title);
 		
-			//!!!DANGER ZONE - We shouldn't index result sets, but we do want the link juice.
+			//!!!DANGER ZONE - We shouldn't index result sets, but we do want the Google juice.
 			if(in_array($this->request->action, array('index', 'search'))):
 				echo $this->Html->meta(array('name' => 'robots', 'content' => 'noindex, follow'));
 			endif;
-			//END DNAGER ZONE!!!
+			//END DANGER ZONE!!!
 		
             echo $this->Html->meta(
                 'keywords',
