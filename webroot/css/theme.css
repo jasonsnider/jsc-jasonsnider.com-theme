@@ -141,6 +141,65 @@ pre code{
     border-radius: 4px;
 }
 
+.text-break{
+    word-break: break-all;
+}
+
+/*============================
+Form Defaults
+============================*/
+label{
+    font-weight: bold;
+    display: block;
+}
+
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="password"]{
+    padding: 6px 4px;
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #c0c0c0;
+}
+
+.input,
+.textarea,
+.submit{
+    margin-bottom: 10px;
+}
+
+.submit{
+    text-align: right;
+}
+
+.error,
+.error-message{
+    color: #900;
+}
+
+.error > textarea,
+.error > input{
+    border: 1px solid #b94a48;
+}
+
+input[type='submit']{
+    color: #fff;
+    text-decoration: none;
+    background: #428bca;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    margin: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+input[type='submit']:hover{
+    color: #fff;
+    background: #649aec;
+}
 
 /*============================
 Main\Layout
@@ -303,6 +362,11 @@ Navigation
     border-radius: 4px;
     border: 1px solid #efefef;
     padding: 6px;
+    margin:0;
+}
+
+.site-nav ul li form .search{
+    margin:0;
 }
 
 .site-nav ul li a:hover{

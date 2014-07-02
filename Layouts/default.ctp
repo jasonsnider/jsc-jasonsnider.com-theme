@@ -5,7 +5,7 @@
         <?php
 			echo $this->Html->meta(array('http-equiv' => 'X-UA-Compatible', 'content' => 'IE=edge'));
 			echo $this->Html->meta(array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1'));
-			echo $this->Html->tag('title', $this->request->title);
+			//echo $this->Html->tag('title', $this->request->title);
 		
 			//!!!DANGER ZONE - We shouldn't index result sets, but we do want the Google juice.
 			if(in_array($this->request->action, array('index', 'search'))):
@@ -35,7 +35,10 @@
             echo $this->fetch('css');
             echo $this->fetch('script');
 			
+			$model = null;
+			
 			if(!empty($content)):
+				$model = model($content);
         ?>
         
         <!-- Begin Social Tags -->
@@ -64,21 +67,6 @@
         <meta property="og:image" content="http://example.com/image.jpg">
         <meta property="og:description" content="<?php echo $this->request->description; ?>">
         <meta property="og:site_name" content="Jason Snider">
-		<?php 
-		/**
-		 * Based upon the data type of the accessed page, we want the content indicies in the header to match
-		 * @param array $content
-		 * @return string
-		 */
-		function model($content){
-			$model = null;
-			$model = (isset($content['Content'])?'Content':$model);
-			$model = (isset($content['Post'])?'Post':$model);
-			$model = (isset($content['Page'])?'Page':$model);
-			return $model;
-		}
-		$model = model($content);
-		?>
 		
         <meta property="article:published_time" 
               content="<?php echo date('c', strtotime($content[$model]['created'])); ?>">
@@ -117,7 +105,7 @@
 						$elementPath = $this->element($element, array('model'=>$model));
 					}
 
-					$elementPath = $elementPath . $this->element('sidebar');
+					$elementPath = $elementPath; //. $this->element('sidebar');
 
 					//Load the content for the main display area into a single variable
 					$content = null;
