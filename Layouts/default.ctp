@@ -26,7 +26,6 @@
             echo $this->Html->meta('icon', '/theme/JasonSniderTbs/img/57dd069b73a149098c4865f8f5813303.jpeg');
 
 			echo $this->Html->css('//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css');
-            echo $this->Html->css('cake.generic.stripped');
 			echo $this->Html->css('theme');
 			echo $this->Html->css('//fonts.googleapis.com/css?family=Rock+Salt');
 			echo $this->Html->css('//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700');
