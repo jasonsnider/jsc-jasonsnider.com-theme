@@ -314,13 +314,23 @@ Main\Layout
 
 .sidebar-two-column ul li a{
     display: inline-block;
-    padding: 12px 0;
+    padding: 6px 0;
 }
 
 .content-two-column,
 .sidebar-two-column{
     padding: 0 12px;
 }
+
+.sidebar-two-column aside:first-child{
+    margin-top: 18px;
+}
+
+.sidebar-two-column aside header{
+    font-weight: bold;
+    color: #777;
+}
+
 
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {}
