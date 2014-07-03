@@ -1,31 +1,3 @@
-<style>
-	.pager{
-		text-align: center;
-	}
-	
-	.pager span{
-		padding: 0 4px;
-	}
-	
-	.pager span a{
-		padding: 0 6px;
-	}
-	
-	.pager span.disabled{
-		padding: 0 10px;
-		color: #777;
-	}
-
-	.current{
-		font-weight: bold;
-	}
-	
-	.pager-numbers{
-		color: #777;
-		padding: 6px 0;
-		font-style:italic;
-	}
-</style>
 <?php
 
 
