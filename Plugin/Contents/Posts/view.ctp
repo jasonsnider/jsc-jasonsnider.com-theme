@@ -3,6 +3,7 @@
 		<h1><?php echo $content['Post']['title']; ?></h1>
 		<div class="meta-data">
 			Posted On <time 
+				class="meta-data"
 				datetime="<?php echo date('m/d/y', strtotime($content['Post']['created'])); ?>">
 				<?php echo date('l, F jS, Y \a\t H:i', strtotime($content['Post']['created'])); ?></time>
 				By Jason D Snider
@@ -24,7 +25,7 @@
 				'tags'=>$tag['name']
 			), 
 			array(
-				'class'=>'label label-default'
+				'class'=>'tags'
 			)
 		);
 		echo '&nbsp;';
@@ -33,7 +34,6 @@
 </aside>
 
 <aside class="clearfix author" itemscope itemtype="http://data-vocabulary.org/Person">
-
 	<?php 
 	echo $this->Html->image(
 		'https://secure.gravatar.com/avatar/57dd069b73a149098c4865f8f5813303.png',

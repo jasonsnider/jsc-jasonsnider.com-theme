@@ -2,7 +2,11 @@
 Main/Utilities
 ============================*/
 *{
-    font-family: 'Open Sans', sans-serif;    
+    font-family: 'Open Sans', sans-serif;  
+    color: #444;
+    font-weight: 400;
+    line-height: 1.42857143;
+    font-size: 16px;
 }
 
 body{
@@ -116,6 +120,8 @@ pre code{
 
 .meta-data{
     color: #999;
+    font-style: italic;
+    font-size: 90%;
 }
 
 .ad{
@@ -252,7 +258,7 @@ form.default .submit input[type=submit] {
     border-radius: 4px;
     padding: 6px 12px;
     margin: 0;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
 }
 form.default .submit input[type=submit]:hover {
@@ -286,6 +292,68 @@ form.default .error-message {
 	-o-box-shadow: none;
 	box-shadow: none;
 	text-shadow: none;
+}
+
+.error,
+.error-message{
+    color: #900;
+}
+
+.error > textarea,
+.error > input{
+    border: 1px solid #b94a48;
+}
+
+a.tags,
+a.tags:link,
+a.tags:visited{
+    font-size: 83%;
+    text-decoration: none;
+    padding: 0 2px;
+    border: 1px solid #c4c6c8;
+    color: #c4c6c8;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+a.tags:hover{
+    background: #c4c6c8;
+    color: #fff;
+}
+
+header *{
+    padding: 0;
+    margin: 0;
+}
+
+article header{
+    text-align: center;
+    border-bottom: 1px solid #e6e8ea;
+    padding-bottom: 14px;
+}
+
+article header h1{
+    margin-bottom: 8px;
+    font-size: 140%;
+}
+
+article{
+    background: #fff;
+    border-top: 6px solid rgba(187, 68, 0, 0.8);
+    padding: 35px 0;
+    margin: 0 0 12px;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    article{
+        background: #fff;
+        border: 1px solid #e6e8ea;
+        border-top: 6px solid rgba(187, 68, 0, 0.8);
+        padding: 35px 3em;
+        border-radius: 3px;
+
+    }
 }
 
 /*============================
@@ -322,13 +390,23 @@ Main\Layout
     padding: 0 12px;
 }
 
-.sidebar-two-column aside:first-child{
-    margin-top: 18px;
+.sidebar-two-column aside header{
+    font-weight: normal;
+    font-size: 130%;
+    color: #777;
+    text-align: left;
+    padding: 0 0 6px;
+    margin: 0;
+    border-bottom: 1px solid #e6e8ea;
 }
 
-.sidebar-two-column aside header{
-    font-weight: bold;
-    color: #777;
+.sidebar-two-column aside ul{
+    padding: 0 0 12px;
+    margin: 0;
+}
+
+.sidebar-two-column aside ul a{
+    font-size: 90%;
 }
 
 /*============================
@@ -371,7 +449,7 @@ Pagination
 @media only screen and (min-width : 768px) {
 
 	.container{
-		width: 750px;
+		width: 768px;
 		margin: 0 auto
 	}
 
@@ -627,13 +705,20 @@ Home Page Titles
 	padding:2px 4px;
 	margin:0;
 	border: none;
-
 	color: #fff; 
 	font-weight: normal;
 	display: inline-block;
 	width: 100%;
 	overflow:hidden;
 	float:left;
+}
+
+a.tile,
+a.tile:link span,
+a.tile:visited span,
+a.tile:link strong,
+a.tile:visited strong{
+    color: #428bca;
 }
 
 .tile span{
@@ -645,7 +730,9 @@ Home Page Titles
 	font-size: 120%;
 }
 
-.tile:hover span{
+.tile:hover span,
+a.tile:hover span,
+a.tile:hover strong{
 	background: #428bca;
 	color: #fff;
 }
