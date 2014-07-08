@@ -334,7 +334,16 @@ article header{
 
 article header h1{
     margin-bottom: 8px;
-    font-size: 140%;
+    font-weight: 500;
+    font-size: 24px;     
+}
+
+article header h1 a,
+article header h1 a:link,
+article header h1 a:visited{
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 24px;     
 }
 
 article{
@@ -392,7 +401,7 @@ Main\Layout
 
 .sidebar-two-column aside header{
     font-weight: normal;
-    font-size: 130%;
+    font-size: 21px;
     color: #777;
     text-align: left;
     padding: 0 0 6px;
